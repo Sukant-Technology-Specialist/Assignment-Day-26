@@ -1,0 +1,70 @@
+1. use student
+
+2. db.createCollection("students")
+
+3. Insert many student record with name, primary address, favourite teacher and age. 
+
+db.students.insertMany([{
+        "name": "Shyla",
+        "primary address": "USA",
+        "favourite teacher": "John",
+        "age": 21
+
+    }, {
+        "name": "Arun",
+        "primary address": "Chennai",
+        "favourite teacher": "Anitha",
+        "age": 22
+    },
+    {
+        "name": "Vijay",
+        "primary address": "Chennai",
+        "favourite teacher": "Nicollete",
+        "age": 23
+    },
+    {
+        "name": "Ashwini",
+        "primary address": "Chennai",
+        "favourite teacher": "Anitha",
+        "age": 25
+    }
+])
+
+4. Check weather a student name ‘Arun’ is present in the collection.
+
+db.students.find({"name":"Arun"})
+
+5. Change the primary address of the student ‘Vijay’ as no ‘123 abc nagar Chennai.’
+
+db.students.updateOne({"name":"Vijay"},{ $set:{"primary address":"no.123 adc nagar chennai"}});
+
+6. Find all the student whose age is greater than 12.
+
+db.students.find({"age":{$gte:12}}).pretty()
+
+7. Find the favourite teacher of student ‘Ashwini’
+
+db.students.find({"name":"Ashwini"}).pretty()
+
+8. Count the number of student present in student collection.
+
+db.students.count()
+
+9. Count the students who live in Chennai
+
+db.students.find( { "primary address": { $regex: /Chennai/i} }).count()
+
+10. Count the student whose favourite teacher is ‘Anitha’.
+
+db.students.find({"favourite teacher" : "Anitha"}).count()
+
+
+
+
+
+
+
+
+
+
+
